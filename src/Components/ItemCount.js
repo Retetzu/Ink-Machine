@@ -11,10 +11,6 @@ export default function ItemCount({ stock, initial, onAdd}) {
     if(counter !== initial) return setInitial(counter - 1)
   }
 
-  const agregar = () => {
-    onAdd(alert(counter))
-  }
-
   return (
     <div>
         <div>
@@ -24,7 +20,7 @@ export default function ItemCount({ stock, initial, onAdd}) {
             <button onClick={sumar} type="button" className="btn btn-outline-primary">Sumar</button>
           </div>
         </div>
-          <button type="button" className="btn btn-primary" onClick={agregar}>Agregar</button>
+          <button type="button" className="btn btn-primary" onClick={() => onAdd(counter)}>Agregar</button>
     </div>
   )
 }

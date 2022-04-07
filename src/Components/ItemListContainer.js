@@ -3,7 +3,11 @@ import { products } from './Data/Data'
 import ItemCount from './ItemCount'
 import ItemList from './ItemList'
 
-export default function ItemListContainer({ onAdd }) {
+export default function ItemListContainer() {
+
+  const onAdd = (count) => {
+   alert(`Agregaste ${count} items`)
+  }
    const [product, setProduct] = useState([])
   
  useEffect(() => {
