@@ -13,14 +13,14 @@ export const products = [{
     description: 'Tinta Dynamic una de las mejores marcas para el Black Work en el mundo del tatuaje'
   },
   {
-    id: 1,
+    id: 3,
     title: "Ink",
     price: 5000,
     pictureURL: 'https://m.media-amazon.com/images/I/61epCVfnRkL._SL1500_.jpg',
     description: 'Tinta Dynamic una de las mejores marcas para el Black Work en el mundo del tatuaje'
   },
   {
-    id: 1,
+    id: 4,
     title: "Ink",
     price: 5000,
     pictureURL: 'https://m.media-amazon.com/images/I/61epCVfnRkL._SL1500_.jpg',

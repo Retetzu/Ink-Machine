@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import { products } from './Data/Data'
 import ItemCount from './ItemCount'
 import ItemList from './ItemList'
 
 export default function ItemListContainer() {
-
+  const {id} = useParams()
   const onAdd = (count) => {
    alert(`Agregaste ${count} items`)
   }
@@ -17,7 +18,8 @@ export default function ItemListContainer() {
     }, 2000)
   })
   promise.then((res) => {
-    setProduct(res)
+    if(id)setProduct(res.filter(e => e.category === id));
+     else {setProduct(res)}
   })
  })
   
