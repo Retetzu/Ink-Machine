@@ -12,9 +12,9 @@ export default function NavBar() {
                 <h2><Link to={`/`}>Ink Machine</Link></h2>
             </div>
             <ul class="menu">
-                <li><Link to={`/category/:id`}> Items </Link></li>
-                <li><Link to={`/category/:id`}>About us</Link></li>
-                <li><Link to={`/category/:id`}>Contact</Link></li>
+                <li><Link className="nav-link" to="/category/insumos">Insumos</Link></li>
+                <li><Link className="nav-link" to="/category/machine">Machine</Link></li>
+                <li><Link className="nav-link" to="/category/:id">Contact</Link></li>
             </ul>
             <CartWidget />
         </div>

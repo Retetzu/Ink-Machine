@@ -1,11 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+import ItemCount from './ItemCount'
 import './Style/ItemDetail.css'
 
 export default function ItemDetail({ item }) {
+
+    const [show, setShow] = useState(true);
+    const onAdd = (quantityToAdd) => {
+       item.cantidad = quantityToAdd;
+       item.valorFinal = item.price * item.cantidad;
+       item.agregado = true;
+       setShow(false);
+    }
+    
   return (
     <>
       {item.pictureURL && (
-          <div className='container'>
+          <div key={item.id} className='container'>
           <div className='card'>
               <div className='img'>
                   <img src={item.pictureURL} alt='tattoo'></img>
@@ -22,8 +33,15 @@ export default function ItemDetail({ item }) {
                   </div>
               </div>
           </div>
+          {show ? (
+            <ItemCount stock={item.stock} initial={1} onAdd={onAdd} />
+          ) : (
+            <Link to={"/cart"}> Finalizar </Link>
+          )}
+         
        </div>
       )}
+      
     </>
-  )
+ )
 }

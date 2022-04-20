@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { products } from './Data/Data'
-import ItemCount from './ItemCount'
 import ItemList from './ItemList'
 
 export default function ItemListContainer() {
   const {id} = useParams()
-  const onAdd = (count) => {
-   alert(`Agregaste ${count} items`)
-  }
-   const [product, setProduct] = useState([])
+  
+  const [product, setProduct] = useState([])
   
  useEffect(() => {
   const promise = new Promise((resolve, reject) => {
@@ -19,13 +16,12 @@ export default function ItemListContainer() {
   })
   promise.then((res) => {
     if(id)setProduct(res.filter(e => e.category === id));
-     else {setProduct(res)}
+     else { setProduct(res) }
   })
- })
+ }, [id])
   
   
   return <>
-      <ItemCount stock={5} initial={1} onAdd={onAdd}/>
-      <ItemList items={product}/>
+      <ItemList items={product} key={product.id}/>
   </>
 }

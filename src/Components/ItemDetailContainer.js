@@ -4,6 +4,7 @@ import { products } from "./Data/Data";
 import ItemDetail from "./ItemDetail";
 
 export default function ItemDetailContainer() {
+
   const {id} = useParams()
   const [detail, setDetail] = useState([]);
 
@@ -16,10 +17,10 @@ export default function ItemDetailContainer() {
     getItem.then((res) => {
       setDetail(res);
     });
-  });
+  }, [id]);
   return (
     <>
-      <ItemDetail item={detail} />
+      <ItemDetail item={detail} key={detail.id}/>
     </>
   );
 }
