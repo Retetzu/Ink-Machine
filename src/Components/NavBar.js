@@ -16,7 +16,7 @@ export default function NavBar() {
                 <li><Link className="nav-link" to="/category/machine">Machine</Link></li>
                 <li><Link className="nav-link" to="/category/:id">Contact</Link></li>
             </ul>
-            <CartWidget />
+            <Link to={`/cart`}> <CartWidget/> </Link>
         </div>
     </header>
     

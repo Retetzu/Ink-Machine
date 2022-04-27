@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { CartContext } from './CartContext'
-import './Style/ItemDetail.css'
 
 export default function Cart() {
     let {cart, cartVoid, deleteProduct} = useContext(CartContext)
