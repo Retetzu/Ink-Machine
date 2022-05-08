@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 export default function ItemCount({ stock, initial, onAdd}) {
-    let [counter, setInitial] = useState(initial)
+    const [counter, setInitial] = useState(initial)
         
   const sumar = () => {
     if(counter !== stock) return setInitial(counter + 1)

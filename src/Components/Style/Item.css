@@ -1,0 +1,22 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    text-decoration: none;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+  }
+
+  .container {
+     display: flex;
+     flex-direction: row; 
+     width: 20%
+  }
+
+  .card { 
+     text-align: center;
+  }
+
+  .card img {
+    width: 15rem;
+    padding: 0;
+  }

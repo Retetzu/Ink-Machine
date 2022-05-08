@@ -7,9 +7,9 @@ export default function NavBar() {
   return (
     <div class="wrapper">
     <header>
-        <div class="navbar">
-            <div class="brand">
-                <h2><Link to={`/`}>Ink Machine</Link></h2>
+        <div className="navbar">
+            <div className="brand">
+                <h2><Link className="textDecoration" to={`/`}>Ink Machine</Link></h2>
             </div>
             <ul class="menu">
                 <li><Link className="nav-link" to="/category/insumos">Insumos</Link></li>

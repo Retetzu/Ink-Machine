@@ -2,24 +2,20 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { CartContext } from './CartContext'
 
-export default function Cart() {
-    let {cart, cartVoid, deleteProduct} = useContext(CartContext)
-
-    const deleteFromCart = (index) => {
-        deleteProduct(index)
-    }
+export default function Cart({ item }) {
+    const {cart, cartVoid, deleteProduct} = useContext(CartContext)
 
     if(cart.length === 0) {
         return(<>
-              <p> No hay nada en el carrito </p>
-                <Link to={"/productos"} > Cart </Link>
+              <h4> No hay nada en el carrito </h4>
+                <Link to={"/"} > Products </Link>
                </>
             )
     }
     else {
         return(<>
                 {cart.map((item, index) => {
-                    return  <div key={item.id} className='container'>
+                    return <div key={item.id} className='container'>
                             <div className='card'>
                                 <div className='img'>
                                   <img src={item.pictureURL} alt="" />
@@ -28,12 +24,12 @@ export default function Cart() {
                                   <div className='productName'> {item.title} </div>
                                 </div>
                                 
-                                <p> Quantity: {item.quantity} </p>
-                                <div className='price'> $ {item.finalValue} </div>
-                                <p  onClick={() => {deleteFromCart(index)}}></p>
-                                <button onClick={cartVoid}> Delete Cart </button> 
+                                  <p> Quantity: {item.amount} </p>
+                                 <div className='price'> $ {item.finalValue} </div>
+                                <button onClick={() => deleteProduct(item)}> Delete Product </button> 
                             </div>
-                            </div>
+                        </div>
+                      
                 })}
     
                 

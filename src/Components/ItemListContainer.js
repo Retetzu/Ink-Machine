@@ -12,7 +12,7 @@ export default function ItemListContainer() {
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(products)
-    }, 2000)
+    }, )
   })
   promise.then((res) => {
     if(id)setProduct(res.filter(e => e.category === id));

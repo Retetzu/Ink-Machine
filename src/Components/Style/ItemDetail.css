@@ -1,0 +1,30 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    text-decoration: none;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+  }
+
+body {
+    background-color: #FADBF5;
+}
+
+#card {
+    margin-left: 10rem;
+    display: flex;
+    background-color: white;
+    width: 70%;
+}
+
+#wrap {
+    margin-top: 4rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    width: 60%;
+    flex-wrap: wrap;
+}
+
+#card img {
+    width: 40%;
+}

@@ -12,7 +12,7 @@ export default function ItemDetailContainer() {
     const getItem = new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(products.find(product => product.id === Number(id)));
-      }, 2000);
+      }, );
     });
     getItem.then((res) => {
       setDetail(res);

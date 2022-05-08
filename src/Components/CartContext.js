@@ -8,26 +8,45 @@ function CustomProvider ({ children }) {
   const [cart, setCart] = useState([])
   const [price, setPrice] = useState(0)
 
-  const isInCart = (item) => {
-    let search = cart.find((e) => e.product === item.product)
-    return search
-  }
-
   const addProduct = (item) => {
-    if(isInCart(item) === undefined) {
-      setCart([...cart, item])
-      setPrice(price + item.finalValue)
-      console.log('Se agrego el producto al carrito');
+    const isInCart = cart.find((itemInCart) => itemInCart.id === item.id)
+
+    if(isInCart) {
+      setCart(
+        cart.map((itemInCart) => {
+          if(itemInCart.id === item.id) {
+            return {...isInCart, amount: isInCart.quantity + item.quantity}
+          } else return itemInCart;
+        })
+      );
     } else {
-      alert('Este producto fue agregado recientemente')
+      setCart([...cart, {...item, amount: item.quantity}]) 
     }
+    console.log(isInCart);
+    
+    console.log(item);
   }
-  const deleteProduct = (index) => {
-    let copy = cart.slice()
-    setPrice(price - copy[index].finalValue)
-    copy.splice(index, 1)
-    setCart([...copy])
-  }
+  
+
+  const deleteProduct = (item) => {
+    const isInCart = cart.find(
+      (itemInCart) => itemInCart.id === item.id
+    );
+
+    if(isInCart.amount === 1) {
+      setCart(
+        cart.filter((itemInCart) => itemInCart.id !== item.id)
+      );
+    } else {
+      setCart(
+        cart.map((itemInCart) => {
+          if(itemInCart.id === item.id) {
+            return { ...isInCart, amount: isInCart.amount - 1 };
+          } else return itemInCart;
+        })
+      );
+    }
+  };
 
   const cartVoid = () => {
     setCart([])
